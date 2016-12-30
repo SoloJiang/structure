@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Lazyman from '../action/Lazyman';
-Lazyman("solo").sleepFirst("5").eat("dinner");
+require('../action/findMost')
 var App = React.createClass({
     render: function() {
         return (

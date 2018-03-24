@@ -5,7 +5,7 @@
 因为会以数组的形式返回那个值
  */
 
-export default (Array.prototype.findMost = function() {
+export default Array.prototype.findMost = function() {
   let self = this
   let data = []
   let datas = []
@@ -45,4 +45,4 @@ export default (Array.prototype.findMost = function() {
   } else {
     return self
   }
-})
+}

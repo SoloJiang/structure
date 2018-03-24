@@ -1,14 +1,10 @@
 'use strict'
 
-import React from 'react'
-import ReactDom from 'react-dom'
 import Lazyman from '../action/Lazyman'
+import { curry } from '../action/Curry'
 require('../action/findMost')
-var App = React.createClass({
-  render: function() {
-    return <div />
-  }
-})
-
-//最终渲染
-ReactDom.render(<App />, document.getElementById('app'))
+function add(x, y, z, a, b, c) {
+  return [...arguments].reduce((prev, next) => prev + next)
+}
+const testCurry = curry(add)
+console.log(testCurry(1)(2, 3)(4, 5 ,6))

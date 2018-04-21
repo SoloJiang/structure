@@ -1,19 +1,16 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import ReactDom from 'react-dom';
-import Lazyman from '../action/Lazyman';
-require('../action/findMost')
+import React from 'react'
+import ReactDom from 'react-dom'
+// import Lazyman from '../action/Lazyman'
+// require('../action/findMost')
+// require('../action/mvvm')
+require('../action/observeArray')
 var App = React.createClass({
-    render: function() {
-        return (
-            <div>
-            </div>
-        );
-    }
-});
+  render: function() {
+    return <div />
+  }
+})
 
 //最终渲染
-ReactDom.render((
-    <App />
-), document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'))

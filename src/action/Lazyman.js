@@ -33,64 +33,64 @@ Eat supper
 我们需要一个类似于next()的函数来执行下一步的操作
 */
 function _LazyMan(name) {
-    this.tasks = [];//通过tasks数组来储存任务
-    let self = this;
-    let fn = (function(n) {
-        let name = n;
-        return function () {
-            console.log("Hi! This is "+ name + "!");
-            self.next();
-        }
-    })(name);
-    this.tasks.push(fn);
-    setTimeout(()=> {
-        self.next();
-    }, 0)
+  this.tasks = [] //通过tasks数组来储存任务
+  let self = this
+  let fn = (function(n) {
+    let name = n
+    return function() {
+      console.log('Hi! This is ' + name + '!')
+      self.next()
+    }
+  })(name)
+  this.tasks.push(fn)
+  setTimeout(() => {
+    self.next()
+  }, 0)
 }
 _LazyMan.prototype.next = function() {
-    let fn = this.tasks.shift();
-    fn && fn();
+  let fn = this.tasks.shift()
+  fn && fn()
 }
 _LazyMan.prototype.eat = function(name) {
-    let self = this;
-    let fn = (function(n) {
-        let name = n;
-        return function () {
-            console.log("Eat "+ name + "~");
-            self.next();
-        }
-    })(name);
-    this.tasks.push(fn);
-    return this;
+  let self = this
+  let fn = (function(n) {
+    let name = n
+    return function() {
+      console.log('Eat ' + name + '~')
+      self.next()
+    }
+  })(name)
+  this.tasks.push(fn)
+  return this
 }
 _LazyMan.prototype.sleep = function(time) {
-    let self = this;
-    let fn = (function(time) {
-        return function () {
-            setTimeout(() => {
-                console.log("Wake up after "+ time + "s");
-                self.next();
-            }, time*1000);
-        }
-    })(time);
-    this.tasks.push(fn);
-    return this;
+  let self = this
+  let fn = (function(time) {
+    return function() {
+      setTimeout(() => {
+        console.log('Wake up after ' + time + 's')
+        self.next()
+      }, time * 1000)
+    }
+  })(time)
+  this.tasks.push(fn)
+  return this
 }
 _LazyMan.prototype.sleepFirst = function(time) {
-    let self = this;
-    let fn = (function(time) {
-        return function() {
-            setTimeout(() => {
-                console.log("Wake up after "+ time + "s");
-                self.next();
-            }, time*1000);
-        }
-    })(time);
-    self.tasks.unshift(fn);
-    return this;
+  let self = this
+  let fn = (function(time) {
+    return function() {
+      setTimeout(() => {
+        console.log('Wake up after ' + time + 's')
+        self.next()
+      }, time * 1000)
+    }
+  })(time)
+  self.tasks.unshift(fn)
+  return this
 }
 function LazyMan(name) {
-    return new _LazyMan(name);
+  return new _LazyMan(name)
 }
 
-export default LazyMan;
+export default LazyMan
